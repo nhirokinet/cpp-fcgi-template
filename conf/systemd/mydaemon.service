@@ -1,0 +1,10 @@
+[Unit]
+Description = mydaemon
+
+[Service]
+ExecStart = /usr/bin/spawn-fcgi -P /var/run/mydaemon.pid -s /var/run/mydaemon.sock -M 0666 -n /usr/sbin/mydaemon
+StandardOutput = syslog
+StandardError = syslog
+
+[Install]
+WantedBy=multi-user.target
